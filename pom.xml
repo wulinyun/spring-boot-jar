@@ -23,15 +23,15 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-    <profiles>  
+    <!-- <profiles>  
 	    <profile>  
 	        <id>dev</id>  
 	        <properties>  
-	            <!-- 环境标识，需要与配置文件的名称相对应 -->  
+	            环境标识，需要与配置文件的名称相对应  
 	            <activatedProperties>dev</activatedProperties>  
 	        </properties>  
 	        <activation>  
-	            <!-- 默认环境 -->  
+	            默认环境  
 	            <activeByDefault>true</activeByDefault>  
 	        </activation>  
 	    </profile>  
@@ -47,7 +47,7 @@
 	            <activatedProperties>prod</activatedProperties>  
 	        </properties>  
 	    </profile>  
-	</profiles>  
+	</profiles>  --> 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
