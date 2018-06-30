@@ -71,10 +71,21 @@
 			  <groupId>com.spotify</groupId>
 			  <artifactId>docker-maven-plugin</artifactId>
 			  <version>0.4.13</version>
+			  <executions>
+                    <!--执行 mvn package 时 自动 执行 mvn docker:build-->
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
 			  <configuration>
 			    <imageName>harbor.landaudev.com/springboot-demo:0.0.1</imageName>
 			    <baseImage>java</baseImage>
 			    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+			    <!-- <dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory> -->
 			    <resources>
 			      <resource>
 			        <targetPath>/</targetPath>
@@ -82,9 +93,10 @@
 			        <include>${project.build.finalName}.jar</include>
 			      </resource>
 			    </resources>
-			
 			    <!-- 与maven配置文件settings.xml中配置的server.id一致，用于推送镜像 -->
 			    <serverId>docker-harbor</serverId>
+			   <!--  如需重复构建相同标签名称的镜像，可将forceTags设为true，这样就会覆盖构建相同标签的镜像 -->
+			    <forceTags>true</forceTags>
 			  </configuration>
 			</plugin>
 		</plugins>
