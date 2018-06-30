@@ -3,7 +3,7 @@ applications:
 - name: springboot-dev
   memory: 1024M
   path: target/springboot-test-0.0.1-SNAPSHOT.jar
-  host: springboot-test
+  host: springboot-dev
   domain: landaudev.com
   env:
     TZ: Asia/Shanghai
