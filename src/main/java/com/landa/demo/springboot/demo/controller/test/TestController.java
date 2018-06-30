@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 	    @Autowired  
 	    private Environment env;  
-	      
+	    @Value("${demo.msg}")
+	    private String msg;
+	    @RequestMapping("/")   
+	    public String hello(){  
+	        return msg;  
+	    }  
 	    @RequestMapping("/env")   
 	    public String index2(String envName){  
 	        return "方式二:"+env.getProperty(envName);  
