@@ -2,28 +2,28 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: docker-jar-demo
-  name: docker-jar-demo
+    name: docker-jar-demo-ingress
+  name: docker-jar-demo-ingress
 spec:
   ports:
     - port: 8082
   selector:
-    app: docker-jar-demo
+    app: docker-jar-demo-ingress
 
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: docker-jar-demo
+  name: docker-jar-demo-ingress
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: docker-jar-demo
+        app: docker-jar-demo-ingress
     spec:
       containers:
-      - name: docker-jar-demo
+      - name: docker-jar-demo-ingress
         image: harbor.k8s.landaudev.com/demo/docker-jar-demo
         ports:
         - containerPort: 8082
@@ -32,14 +32,14 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: docker-jar-demo
+  name: docker-jar-demo-ingress
 spec:
   rules:
-  - host: docker-jar-demo.k8s.landaudev.com
+  - host: docker-jar-demo-ingress.k8s.landaudev.com
     http:
       paths:
       - path: /
         backend:
-          serviceName: docker-jar-demo
+          serviceName: docker-jar-demo-ingress
           servicePort: 8082
 

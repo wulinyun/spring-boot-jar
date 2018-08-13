@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: docker-jar-demo
+  name: docker-jar-demo
+spec:
+  ports:
+    - port: 8082
+  selector:
+    app: docker-jar-demo
+  type: NodePort
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: docker-jar-demo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: docker-jar-demo
+    spec:
+      containers:
+      - name: docker-jar-demo
+        image: harbor.k8s.landaudev.com/demo/docker-jar-demo
+        ports:
+        - containerPort: 8082
+
