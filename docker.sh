@@ -19,4 +19,4 @@ cf push docker-jar-demo --docker-image harbor.landaudev.com/demo/docker-jar-demo
 #删除tag标记
 #docker rmi -f harbor.landaudev.com/demo/docker-jar-demo:latest
 #后台运行本地docker镜像
-#sudo docker run   -d -p 8080:8080 wulinyun/docker-jar-demo
+#docker run  -d -p 8089:8080 wulinyun/docker-jar-demo

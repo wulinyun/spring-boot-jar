@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: docker-jar-demo
-        image: harbor.k8s.com/demo/docker-jar-demo
+        image: harbor.k8s.landaudev.com/demo/docker-jar-demo
         ports:
         - containerPort: 8082
 
@@ -35,7 +35,7 @@ metadata:
   name: docker-jar-demo
 spec:
   rules:
-  - host: docker-jar-demo.k8s.com
+  - host: docker-jar-demo.k8s.landaudev.com
     http:
       paths:
       - path: /
