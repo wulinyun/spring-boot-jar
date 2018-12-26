@@ -1,9 +1,9 @@
 ---
 applications:
-- name: landa-ma-vuejsdemo-docker-dev
+- name: landa-mas-docker-jar-demo
 #  path: ./dist/  #vuejs构建的静态资源目录
   memory: 1024M
-  host: landa-ma-vuejsdemo-docker-dev
+  host: landa-mas-docker-jar-demo
   domain: landaudev.com
   docker: 
     image: harbor.landaudev.com/demo/docker-jar-demo:latest
