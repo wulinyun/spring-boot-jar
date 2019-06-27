@@ -1,4 +1,5 @@
 FROM java:8
+#FROM 10.128.1.201/system_containers/java:8
 VOLUME /tmp
 ADD target/spring-boot-demo.jar app.jar
 RUN bash -c 'touch /app.jar'
