@@ -1,4 +1,4 @@
-package com.landa.demo.springboot.demo;
+package com.landa.demo.springboot;
 
 import org.junit.*;
 import org.junit.runner.RunWith;
