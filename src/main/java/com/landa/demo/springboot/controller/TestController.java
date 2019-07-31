@@ -16,10 +16,10 @@ public class TestController {
 	    private Environment env;  
 	    @Value("${demo.msg}")
 	    private String msg;
-/*	    @RequestMapping("/")
+	    @RequestMapping("/")
 	    public String hello(){  
 	        return msg;  
-	    }  */
+	    }
 	    @RequestMapping("/env")   
 	    public String index2(String envName){  
 	        return "方式二:"+env.getProperty(envName);  
