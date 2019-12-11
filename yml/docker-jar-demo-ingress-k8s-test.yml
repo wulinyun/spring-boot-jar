@@ -6,7 +6,7 @@ metadata:
   name: docker-jar-demo-ingress
 spec:
   ports:
-    - port: 8080
+    - port: 8082
   selector:
     app: docker-jar-demo-ingress
 
@@ -26,7 +26,7 @@ spec:
       - name: docker-jar-demo-ingress
         image: harbor.k8s.landaudev.com/demo/docker-jar-demo
         ports:
-        - containerPort: 8080
+        - containerPort: 8082
 
 ---
 apiVersion: extensions/v1beta1
@@ -35,11 +35,11 @@ metadata:
   name: docker-jar-demo-ingress
 spec:
   rules:
-  - host: docker-jar-demo-ingress.k8s.landaudev.com
+  - host: docker-jar-demo-ingress.k8stest.landaudev.com
     http:
       paths:
       - path: /
         backend:
           serviceName: docker-jar-demo-ingress
-          servicePort: 8080
+          servicePort: 8082
 
