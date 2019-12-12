@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: docker-jar-demo-ingress
-        image: harbor.k8s.landaudev.com/demo/docker-jar-demo
+        image: harbor.k8stest.landaudev.com/demo/docker-jar-demo:latest
         ports:
         - containerPort: 8082
 
